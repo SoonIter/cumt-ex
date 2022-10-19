@@ -66,6 +66,12 @@
 				fill: #88AEFF;
 			}
 		</style>
+		<text id="title" x="800" y="780" id="标题" id="矿大制霸（南湖）" style="font-size: 42px;display: none;">
+			矿大制霸（南湖）
+		</text>
+		<text id="分数" x="820" y="900" style="font-size: 70px;">分数</text>
+
+
 		<g id="svg_2">
 			<g id="area">
 				<path id="矿大东门" d="m1101.97524,713.12609l-135.41187,0l0,-190.80623l135.41187,0l0,190.80623z" />
@@ -200,12 +206,16 @@
 		</g>
 		</g>
 	</svg>
-	<div
+	<!-- header -->
+	<header
 		style="width:100%; position:fixed;top:0; display: flex;justify-content:space-between;font-size: 30px; font-weight:900;">
-		<div id="分数"></div>
-		<div>矿大制霸（南湖）</div>
+		<div class="分数 分数_1"></div>
+		<div>矿大制霸<span>
+				（南湖）
+			</span>
+		</div>
 		<div><a class="Github" href="https://github.com/sooniter/cumt-ex" target="_blank">GitHub</a></div>
-	</div>
+	</header>
 	<div id="设置等级">
 		<h2>地区</h2>
 		<a data-level="5">天天在</a>
@@ -215,11 +225,10 @@
 		<a data-level="1">曾路过</a>
 		<a data-level="0">没去过</a>
 	</div>
-	<div style="z-index: 100;">
-		<a href="https://github.com/sooniter/cumt-ex" target="_blank">GitHub</a>
+	<div style="z-index: 100;position: fixed;bottom: 20px;left:20px;">
 		<a id="保存" class="按钮">保存成图片</a>
 	</div>
-	<div id="输出图像" style="display: none;">
+	<footer id="输出图像" style="display: none;padding:2px;">
 		<div>
 			<img>
 		</div>
@@ -230,8 +239,18 @@
 		<div>
 			<a class="按钮">关闭</a>
 		</div>
-	</div>
+	</footer>
 	<script src="./dist/document.dev.js"></script>
+	<a style="z-index:999;opacity:0.7;position: fixed;bottom:-20px; right:0;" href="https://kxz.atcumt.com/"
+		target="_blank">
+		<img src="http://atcumt.com/static/ico/logo.png" width="249" height="50" vspace="20">
+	</a>
+	<script async>
+		const message = "%c我们是中国矿业大学翔工作室，一个致力于用专业知识为矿大同学们谋福利的公益团队.招新群:515713739";
+		const message2 = "%c本站由工作室sooniter和fischer共同创建。如果本页可以帮助你消化掉学习生活中的烦恼与压力，我们定无比开心。欢迎同学们使用分享，希望各位大佬高抬贵手 XD"
+		console.log(message, "background-color:#7aeea8;color:white;font-size:20px;")
+		console.log(message2, "background-color:#6ef4d1;color:white;font-size:16px;")
+	</script>
 </body>
 
 </html>

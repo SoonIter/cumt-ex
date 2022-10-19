@@ -1,7 +1,8 @@
 {
-  "name": "china-ex",
-  "version": "0.0.2",
-  "description": "中国制霸生成器",
+  "name": "cumt-ex",
+  "version": "0.0.1",
+  "private": true,
+  "description": "矿大制霸生成器（南湖）",
   "main": "html/index.html",
   "scripts": {
     "generate-font": "node generate-font-slice.js "
@@ -11,9 +12,10 @@
     "url": "git+https://github.com/itorr/china-ex.git"
   },
   "keywords": [
-    "china"
+    "china-ex",
+    "cumt-ex"
   ],
-  "author": "itorr",
+  "author": "sooniter",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/itorr/china-ex/issues"

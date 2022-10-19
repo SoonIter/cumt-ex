@@ -16,7 +16,7 @@ var createElement = function createElement(name) {
   return document.createElement(name);
 };
 
-var Image = function Image(_) {
+var createImage = function createImage(_) {
   return new Image();
 };
 
@@ -69,6 +69,16 @@ var 获取等级们并生效 = function 获取等级们并生效(_) {
 var 图形 = body.children[0];
 var 设置等级样式 = 设置等级.style;
 var 最小间距 = 6;
+var title = document.getElementById('title');
+
+function setScore(score) {
+  var domArr = document.getElementsByClassName('分数');
+
+  _toConsumableArray(domArr).forEach(function (i) {
+    return i.innerHTML = "\u5206\u6570\uFF1A".concat(score);
+  });
+}
+
 addEventWatcher(地区, CLICK, function (事件) {
   事件.stopPropagation();
   var 省元素 = 事件.target;
@@ -95,6 +105,7 @@ var 计分 = function 计分(_) {
     return +全 + 当前;
   }, 0);
   分数.innerHTML = "\u5206\u6570: ".concat(分);
+  setScore(分);
 };
 
 addEventWatcher(设置等级, CLICK, function (事件) {
@@ -171,7 +182,7 @@ var 下载文件 = function 下载文件(链接, 文件名) {
 };
 
 var 地址变图像元素 = function 地址变图像元素(地址, 回调) {
-  var 图 = Image();
+  var 图 = createImage();
   addEventWatcher(图, 'load', function (_) {
     return setTimeout(function (_) {
       return 回调(图);
@@ -189,23 +200,25 @@ var 日志 = function 日志(_) {
 var 输出图像样式 = 输出图像.style;
 
 var 保存图像 = function 保存图像(_) {
+  title.style.display = 'block';
+  title.offsetHeight;
   documentElement.setAttribute('data-running', 'true');
   var 文档文本 = "<?xml version=\"1.0\" encoding=\"utf-8\"?><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 ".concat(宽, " ").concat(高, "\" width=\"").concat(宽, "px\" height=\"").concat(高, "px\">").concat(图形.innerHTML, "</svg>");
   var 数据地址 = 从文档文本新建图形文件(文档文本); // open(数据地址);
   // return ;
 
   地址变图像元素(数据地址, function (图) {
-    context.fillStyle = '#efb4b4';
+    context.fillStyle = '#989cc7';
     context.fillRect(0, 0, 宽 * 比, 宽 * 比);
-    context.drawImage(图, 0, 0, 宽, 高, 0, (宽 - 高) * 比 / 2, 宽 * 比, 高 * 比); // return 下载文件(画板.toDataURL(),`[神奇海螺][中国制霸]${+new Date()}.png`,保存);
-
+    context.drawImage(图, 0, 0, 宽, 高, 0, (宽 - 高) * 比 / 2, 宽 * 比, 高 * 比);
     canvas.toBlob(function (元素数据) {
       var 地址 = URL.createObjectURL(元素数据);
       输出图像.querySelector('img').src = 地址;
       输出图像样式.display = '';
       setTimeout(function (_) {
-        下载文件(地址, "[\u795E\u5947\u6D77\u87BA][\u4E2D\u56FD\u5236\u9738]".concat(+new Date(), ".png"));
+        下载文件(地址, "[\u77FF\u5927\u5236\u9738(\u5357\u6E56)]".concat(+new Date(), ".png"));
         documentElement.removeAttribute('data-running');
+        title.style.display = 'none';
       }, 50);
     }, 'image/png');
   }); // 日志();
@@ -250,6 +263,4 @@ function getUUID(domain) {
   var bin = atob(b64);
   var crc = bin2hex(bin.slice(-16, -12));
   return crc;
-}
-
-console.log(getUUID('123'));
+} // console.log(getUUID('123'));

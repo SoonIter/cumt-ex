@@ -77,13 +77,12 @@ a {
   background: #fff;
   box-shadow: 0 0 0 4px #111;
   border-radius: 3px;
+  padding: 5px;
 }
 footer {
-  background: pink;
   position: fixed;
   right: 0;
   bottom: env(safe-area-inset-bottom, 0);
-  margin: 20px;
   font-size: 24px;
   line-height: 30px;
   transition: opacity 1s ease;
@@ -122,32 +121,38 @@ footer {
     box-shadow: 0 0 0 2px #111;
   }
 }
-@media (max-width: 800px), (max-height: 800px) {
-  html {
-    font-size: 14px;
-  }
-  footer {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 10px;
-    a {
-      padding: 6px 8px;
-    }
-  }
-  .按钮 {
-    box-shadow: 0 0 0 2px #111;
-  }
-  #设置等级 {
-    width: 110px;
-    border-width: 2px;
-    h2 {
-      font-size: 18px;
-      line-height: 30px;
-    }
-    a {
-      font-size: 14px;
-      line-height: 18px;
-    }
+// @media (max-width: 800px), (max-height: 800px) {
+//   html {
+//     font-size: 14px;
+//   }
+//   footer {
+//     font-size: 16px;
+//     line-height: 24px;
+//     margin: 10px;
+//     a {
+//       padding: 6px 8px;
+//     }
+//   }
+//   .按钮 {
+//     box-shadow: 0 0 0 2px #111;
+//   }
+//   #设置等级 {
+//     width: 110px;
+//     border-width: 2px;
+//     h2 {
+//       font-size: 18px;
+//       line-height: 30px;
+//     }
+//     a {
+//       font-size: 14px;
+//       line-height: 18px;
+//     }
+//   }
+// }
+@media (max-width: 480px) {
+  .分数,
+  .分数_1 {
+    display: none;
   }
 }
 @media (max-width: 480px) and (min-height: 600px) {

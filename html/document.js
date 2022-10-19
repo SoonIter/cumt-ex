@@ -2,7 +2,7 @@ const documentElement = document.documentElement;
 const body = document.body;
 const head = document.head;
 const createElement = name => document.createElement(name);
-const Image = _ => new Image();
+const createImage = _ => new Image();
 
 const addEventWatcher = (ele, event, callback) =>
   (ele[`on${event}`] = callback); // 元素.addEventListener(事件,回调);
@@ -35,6 +35,12 @@ const 获取等级们并生效 = _ => {
 const 图形 = body.children[0];
 const 设置等级样式 = 设置等级.style;
 const 最小间距 = 6;
+const title = document.getElementById('title');
+
+function setScore (score) {
+  const domArr = document.getElementsByClassName('分数');
+  [...domArr].forEach(i => i.innerHTML = `分数：${score}`);
+}
 
 addEventWatcher(地区, CLICK, 事件 => {
   事件.stopPropagation();
@@ -76,6 +82,7 @@ const 计分 = _ => {
     return +全 + 当前;
   }, 0);
   分数.innerHTML = `分数: ${分}`;
+  setScore(分);
 };
 addEventWatcher(设置等级, CLICK, 事件 => {
   事件.stopPropagation();
@@ -141,7 +148,7 @@ const 下载文件 = (链接, 文件名, 元素 = createElement('a')) => {
   元素.click();
 };
 const 地址变图像元素 = (地址, 回调) => {
-  const 图 = Image();
+  const 图 = createImage();
   addEventWatcher(图, 'load', _ => setTimeout(_ => 回调(图), 500));
   图.src = 地址;
 };
@@ -152,17 +159,20 @@ const 日志 = _ => {
   // )}`;
 };
 
-
 const 输出图像样式 = 输出图像.style;
 const 保存图像 = _ => {
+  title.style.display = 'block';
+  title.offsetHeight;
+
   documentElement.setAttribute('data-running', 'true');
 
   const 文档文本 = `<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${宽} ${高}" width="${宽}px" height="${高}px">${图形.innerHTML}</svg>`;
   const 数据地址 = 从文档文本新建图形文件(文档文本);
   // open(数据地址);
   // return ;
+
   地址变图像元素(数据地址, 图 => {
-    context.fillStyle = '#efb4b4';
+    context.fillStyle = '#989cc7';
     context.fillRect(0, 0, 宽 * 比, 宽 * 比);
     context.drawImage(
       图,
@@ -175,15 +185,15 @@ const 保存图像 = _ => {
       宽 * 比,
       高 * 比,
     );
-    // return 下载文件(画板.toDataURL(),`[神奇海螺][中国制霸]${+new Date()}.png`,保存);
     canvas.toBlob(元素数据 => {
       const 地址 = URL.createObjectURL(元素数据);
       输出图像.querySelector('img').src = 地址;
       输出图像样式.display = '';
 
       setTimeout(_ => {
-        下载文件(地址, `[神奇海螺][中国制霸]${+new Date()}.png`);
+        下载文件(地址, `[矿大制霸(南湖)]${+new Date()}.png`);
         documentElement.removeAttribute('data-running');
+        title.style.display = 'none';
       }, 50);
     }, 'image/png');
   });
@@ -235,4 +245,4 @@ function getUUID(domain) {
   return crc;
 }
 
-console.log(getUUID('123'));
+// console.log(getUUID('123'));
