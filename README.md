@@ -1,53 +1,21 @@
 ![中国制霸生成器](cover.png)
-# 中国制霸生成器
-中国三十四省级行政区域制霸标记生成工具
+# 矿大制霸（南湖）生成器
+矿大南湖校区制霸标记生成工具
 
-https://lab.magiconch.com/china-ex/
-
-有感兴趣画简化矢量地图的小伙伴欢迎来一起整活儿~ 
-
-## [全球版在这里！🤗](https://github.com/itorr/world-ex)
+[矿大版链接](https://serverless.atcumt.com)
 
 ## 功能
-可以在线标记 居住、短居、游玩、出差、路过 标记后可生成图片进行社区分享
-
-标记过的信息会记录到本地存储，有什么新进展再次打开网页更新即可
+可以在线标记 标记后可生成图片进行社区分享
 
 ## 说明
-简化地图在保留了地缘相接特征的基础上把省级行政区域尽可能简化成了方框，目标是把省级行政区域之间的关系通过画面展现到一目了然的程度
-
-仅三十四省级行政区域可标记，九段线西沙群岛在地图上有标示
-
-## 关于等级
-
-我的个人标准
-
- - 居住：住过年以上
- - 短居：住过月以上
- - 游玩：旅行过
- - 出差：去过但完全没玩
- - 路过：汽车火车路过或飞机经停
-
-## 提示
 请使用自带浏览器进行保存
 
-## 参考 
-参考自 https://zhung.com.tw/japanex/
+地图有失真，为了足够大的点击区域
 
-## 衍生
- - 吃货制霸 @lvwzhen https://github.com/lvwzhen/foodie-ex
- - 美国版 @tenpages https://github.com/tenpages/us-level
-## 微博
-https://weibo.com/1197780522/MaCGDCt6N
+## 贡献仓库
+less需要编译为css
 
-## GitHub
-https://github.com/itorr/china-ex
+cover的sketch文件没有上传
 
-## 反馈
-https://github.com/itorr/china-ex/issues
-
-## 使用了
-腾祥嘉丽大圆
-
-## 协议
-允许非商用非盈利的利用
+## 原版
+[中国版链接](https://lab.magiconch.com/china-ex/)
