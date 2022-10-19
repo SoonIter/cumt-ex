@@ -37,9 +37,9 @@ const 设置等级样式 = 设置等级.style;
 const 最小间距 = 6;
 const title = document.getElementById('title');
 
-function setScore (score) {
+function setScore(score) {
   const domArr = document.getElementsByClassName('分数');
-  [...domArr].forEach(i => i.innerHTML = `分数：${score}`);
+  [...domArr].forEach(i => (i.innerHTML = `分数：${score}`));
 }
 
 addEventWatcher(地区, CLICK, 事件 => {
@@ -152,11 +152,14 @@ const 地址变图像元素 = (地址, 回调) => {
   addEventWatcher(图, 'load', _ => setTimeout(_ => 回调(图), 500));
   图.src = 地址;
 };
+
 const 日志 = _ => {
-  console.log(获取所有省等级们().join(''));
-  // Image().src = `https://lab.magiconch.com/api/china-ex/log?levels=${获取所有省等级们().join(
-  //   '',
-  // )}`;
+    const levels = 获取所有省等级们().join('');
+    requestIdleCallback(() => {
+      fetch(`http://42.192.180.126:8080/share?levels=${levels}`).then(res => {
+        // console.log(res.json());
+      });
+    });
 };
 
 const 输出图像样式 = 输出图像.style;
@@ -197,7 +200,7 @@ const 保存图像 = _ => {
       }, 50);
     }, 'image/png');
   });
-  // 日志();
+  日志();
 };
 
 addEventWatcher(保存, CLICK, 保存图像);
@@ -246,3 +249,13 @@ function getUUID(domain) {
 }
 
 // console.log(getUUID('123'));
+
+function visit() {
+  requestIdleCallback(() => {
+    const id = getUUID('123');
+    fetch(`http://42.192.180.126:8080/visit?id=${id}`).then(res => {
+    //   console.log(res.json());
+    });
+  });
+}
+window.addEventListener('load', visit);

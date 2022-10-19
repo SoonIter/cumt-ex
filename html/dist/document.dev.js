@@ -192,9 +192,11 @@ var 地址变图像元素 = function 地址变图像元素(地址, 回调) {
 };
 
 var 日志 = function 日志(_) {
-  console.log(获取所有省等级们().join('')); // Image().src = `https://lab.magiconch.com/api/china-ex/log?levels=${获取所有省等级们().join(
-  //   '',
-  // )}`;
+  var levels = 获取所有省等级们().join('');
+  requestIdleCallback(function () {
+    fetch("http://42.192.180.126:8080/share?levels=".concat(levels)).then(function (res) {// console.log(res.json());
+    });
+  });
 };
 
 var 输出图像样式 = 输出图像.style;
@@ -221,7 +223,8 @@ var 保存图像 = function 保存图像(_) {
         title.style.display = 'none';
       }, 50);
     }, 'image/png');
-  }); // 日志();
+  });
+  日志();
 };
 
 addEventWatcher(保存, CLICK, 保存图像);
@@ -264,3 +267,14 @@ function getUUID(domain) {
   var crc = bin2hex(bin.slice(-16, -12));
   return crc;
 } // console.log(getUUID('123'));
+
+
+function visit() {
+  requestIdleCallback(function () {
+    var id = getUUID('123');
+    fetch("http://42.192.180.126:8080/visit?id=".concat(id)).then(function (res) {//   console.log(res.json());
+    });
+  });
+}
+
+window.addEventListener('load', visit);
