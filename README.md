@@ -13,7 +13,7 @@
 地图有失真，为了足够大的点击区域
 
 ## 贡献仓库
-less需要编译为css
+less需要编译为css，我使用了vscode插件，compile-hero
 
 cover的sketch文件没有上传
 

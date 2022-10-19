@@ -145,10 +145,13 @@ const 地址变图像元素 = (地址, 回调) => {
   addEventWatcher(图, 'load', _ => setTimeout(_ => 回调(图), 500));
   图.src = 地址;
 };
-const 日志 = _ =>
-  (Image().src = `https://lab.magiconch.com/api/china-ex/log?levels=${获取所有省等级们().join(
-    '',
-  )}`);
+const 日志 = _ => {
+  console.log(获取所有省等级们().join(''));
+  // Image().src = `https://lab.magiconch.com/api/china-ex/log?levels=${获取所有省等级们().join(
+  //   '',
+  // )}`;
+};
+
 
 const 输出图像样式 = 输出图像.style;
 const 保存图像 = _ => {
@@ -184,7 +187,7 @@ const 保存图像 = _ => {
       }, 50);
     }, 'image/png');
   });
-  日志();
+  // 日志();
 };
 
 addEventWatcher(保存, CLICK, 保存图像);
@@ -232,4 +235,4 @@ function getUUID(domain) {
   return crc;
 }
 
-console.log(getUUID("123"))
+console.log(getUUID('123'));

@@ -83,20 +83,21 @@ a {
   border-radius: 3px;
 }
 footer {
-  position: absolute;
+  background: pink;
+  position: fixed;
   right: 0;
   bottom: env(safe-area-inset-bottom, 0);
   margin: 20px;
   font-size: 24px;
   line-height: 30px;
   transition: opacity 1s ease;
+  z-index: 100;
 }
-footer a {
-  float: left;
-  padding: 8px 12px;
+.Github {
+  color: gray;
 }
-footer a.按钮 {
-  margin-left: 12px;
+.Github:hover {
+  color: #111;
 }
 #输出图像 {
   display: flex;
