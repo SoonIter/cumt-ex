@@ -154,26 +154,23 @@ const 地址变图像元素 = (地址, 回调) => {
 };
 
 const 日志 = _ => {
-    const levels = 获取所有省等级们().join('');
-    requestIdleCallback(() => {
-      fetch(`http://42.192.180.126:8080/share?levels=${levels}`).then(res => {
-        // console.log(res.json());
-      });
+  const levels = 获取所有省等级们().join('');
+  requestIdleCallback(() => {
+    fetch(`http://42.192.180.126:8080/share?levels=${levels}`).then(res => {
+      // console.log(res.json());
     });
+  });
 };
 
 const 输出图像样式 = 输出图像.style;
 const 保存图像 = _ => {
   title.style.display = 'block';
-  title.offsetHeight;
+  // title.offsetHeight;
 
   documentElement.setAttribute('data-running', 'true');
 
-  const 文档文本 = `<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${宽} ${高}" width="${宽}px" height="${高}px">${图形.innerHTML}</svg>`;
+  const 文档文本 = `<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${宽 + 50} ${高 + 50}" width="${宽}px" height="${高}px">${图形.innerHTML}</svg>`;
   const 数据地址 = 从文档文本新建图形文件(文档文本);
-  // open(数据地址);
-  // return ;
-
   地址变图像元素(数据地址, 图 => {
     context.fillStyle = '#989cc7';
     context.fillRect(0, 0, 宽 * 比, 宽 * 比);
@@ -188,19 +185,28 @@ const 保存图像 = _ => {
       宽 * 比,
       高 * 比,
     );
-    canvas.toBlob(元素数据 => {
-      const 地址 = URL.createObjectURL(元素数据);
-      输出图像.querySelector('img').src = 地址;
-      输出图像样式.display = '';
+    地址变图像元素('./dns.png', 图 => {
+      context.drawImage(
+        图,
+        870 * 比,
+        870 * 比,
+        230 * 比,
+        230 * 比,
+      );
+      canvas.toBlob(元素数据 => {
+        const 地址 = URL.createObjectURL(元素数据);
+        输出图像.querySelector('img').src = 地址;
+        输出图像样式.display = '';
 
-      setTimeout(_ => {
-        下载文件(地址, `[矿大制霸(南湖)]${+new Date()}.png`);
-        documentElement.removeAttribute('data-running');
-        title.style.display = 'none';
-      }, 50);
-    }, 'image/png');
+        setTimeout(_ => {
+          下载文件(地址, `[矿大制霸(南湖)]${+new Date()}.png`);
+          documentElement.removeAttribute('data-running');
+          title.style.display = 'none';
+          日志();
+        }, 50);
+      }, 'image/png');
+    });
   });
-  日志();
 };
 
 addEventWatcher(保存, CLICK, 保存图像);
@@ -254,7 +260,7 @@ function visit() {
   requestIdleCallback(() => {
     const id = getUUID('123');
     fetch(`http://42.192.180.126:8080/visit?id=${id}`).then(res => {
-    //   console.log(res.json());
+      //   console.log(res.json());
     });
   });
 }
