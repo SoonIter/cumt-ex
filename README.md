@@ -2,7 +2,7 @@
 # 矿大制霸（南湖）生成器
 矿大南湖校区制霸标记生成工具
 
-[矿大版链接](https://serverless.atcumt.com)
+[矿大版链接](https://zhiba.atcumt.com)
 
 ## 功能
 可以在线标记 标记后可生成图片进行社区分享
